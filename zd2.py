@@ -2,25 +2,27 @@
 # -*- coding: utf-8 -*-
 
 
+def circle(rad):
+    p_circle = rad * rad * 3.14
+    return p_circle
+
+
 def cylinder():
-    radius = int(input('Введите радиус цилиндра: '))
-    height = int(input('Введите высоту цилиндра: '))
+    radius = float(input("Радиус цилиндра: "))
+    height = float(input("Высота цилиндра: "))
 
-    def circle():
-        print('Площадь полной поверхности цилиндра: ',
-              2 * 3.14 * radius * height + 2 * 3.14 * radius ** 2)
-
-    message = input('Какую площать вы хотите получить: площадь бокой'
-                    ' поверхности или полную площадь цилиндра?\n'
-                    'Площадь бокой поверхности команда - неполная\n'
-                    'Площадь полной поверхности цилинда команда - полная\n'
-                    '>>>')
-    if message.lower() == 'неполная':
-        print('Площадь боковой повехности: ', 2 * 3.14 * radius * height)
-    elif message.lower() == 'полная':
-        circle()
+    mes = input("Для вывода площади боковой поверхности"
+                " введиите 1\nДля вывода полной площади"
+                " цилиндра введите 2\n"
+                " >>>> ")
+    if mes.lower() == '1':
+        bok = 2 * 3.14 * height * radius
+        print(f'Площадь боковой поверхности = {bok}')
+    elif mes.lower() == '2':
+        whole = 2 * 3.14 * height * radius * (2 * circle(radius))
+        print(f'Площадь всей поверхности = {whole}')
     else:
-        print('Неизвестная команда')
+        print("Команда не опознана")
 
 
 if __name__ == '__main__':
